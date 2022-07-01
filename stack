@@ -1,0 +1,74 @@
+# include <stdio.h>
+# define max_size 5
+int stack[max_size],top=-1;
+void push();
+void pop();
+void peep();
+void display();
+int main(){
+    int item,r;
+	while(1){
+		int ch;
+		printf("\n1.push\n2.pop \n3. peep \n4.display\n6.exits\n");
+		printf("ENTER A CHOICE : ");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1:
+			push();
+			break;
+			case 2:
+			pop();
+			break;
+			case 3:
+			peep();
+			break;
+			case 4:
+			display();
+			break;
+			case 5:
+			exit(0);
+			break;
+			default:
+			printf("incorrect choice");
+		}
+	}
+}
+void push(){
+    int item;
+    if (top==(max_size-1))
+    {
+        printf("stack overflow");
+    }
+    else
+    {
+        printf("element :- ");
+        scanf("%d",&item);
+        top=top+1;
+        stack[top]=item;
+    }
+    display();
+}
+void pop(){
+    int item;
+    if (top==-1)
+    {
+        printf("stack underflow");
+    }
+    else
+    {
+        item=stack[top];
+        top=top-1;
+        printf("deleted element :- %d",item);
+    }
+}
+void peep(){
+    printf("top element :- %d",stack[top]);
+}
+void display(){
+    int i;
+    for ( i = 0; i >=0; i--)
+    {
+        printf("\n %d ",stack[i]);
+    }
+}
